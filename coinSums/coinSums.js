@@ -27,37 +27,27 @@ makeChange(2) === 2
 
 function makeChange(target) {
   var output;
-  var denoms = [1, 2, 5, 10, 20, 50, 100, 200];
-  var totalWays;
+  var denoms = [200, 100, 50, 20, 10, 5, 1];
+  var totalWays = 0 ;
   var length = denoms.length - 1;
   function innerRecurse(denoms, index, target) {
-    if (index === 0) {
+    if (index === denoms.length - 1) {
       return 1;
     }
+
     var denomAmount = denoms[index];
+    console.log(denomAmount, index, target)
     var amountRemaining;
     for (var i = 0; i * denomAmount <= target; i++) {
       amountRemaining = target - (i * denomAmount);
-      totalWays += innerRecurse(denoms, index - 1, amountRemaining);
+      totalWays += innerRecurse(denoms, index + 1, amountRemaining);
     }
     return totalWays;
   }
-  return innerRecurse(denoms, length, 4)
+  return innerRecurse(denoms, 0, target)
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+// METHOD # 2
 function makeChange(n) {
   var output;
   var denoms = [1, 2, 5, 10, 20, 50, 100, 200];
