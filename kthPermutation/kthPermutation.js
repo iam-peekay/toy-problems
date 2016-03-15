@@ -14,7 +14,6 @@ All permutations of the above elements are (with ordering):
 6th - 321
 
 */
-
 function factorial(n) {
   if (n === 0 || n === 1) {
     return 1;
@@ -22,17 +21,17 @@ function factorial(n) {
   return n * factorial(n - 1);
 }
 
-function findKthPermuatin(v, k, result) {
-  if (v || v.length === 0) {
-    return;
+function findKthPermutation(v, k, result) {
+  if (!v || v.length === 0) {
+    return +result;
   }
 
-  let n = v.length;
-  let count = factorial(n - 1);
-  let selected = Math.floor((k - 1) / count);
-  result[0] += v[selected];
+  var n = v.length;
+  var count = factorial(n - 1);
+  var selected = Math.floor((k - 1) / count);
+  result += v[selected];
   v.splice(selected, 1);
   k = k - (count * selected);
 
-  findKthPermuatin(v, k, result);
+  return findKthPermutation(v, k, result);
 }
