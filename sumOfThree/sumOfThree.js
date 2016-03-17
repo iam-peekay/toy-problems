@@ -4,7 +4,7 @@ Given an array of integers and a value, determine if there are any three integer
 target = 20;
 array = [1, 5, 2, 9, 24, 14, 6, 9, 4, 10];
 sorted = [1, 2, 4, 5, 6, 9, 9, 10, 14, 24]
-18, 19, 20, 23, 23, 24, 26, 28, 29, 30, 33, 33, 38
+11, 12, 13, 14, 14, 14, 15, 15, 16, 19, 19, 18, 19, 20, 23, 23, 24, 26, 28, 29, 30, 33, 33, 38
 */
 
 // BRUTE FORCE = 3 nested loops. O(n^3)
