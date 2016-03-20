@@ -36,7 +36,6 @@ function makeChange(target) {
     }
 
     var denomAmount = denoms[index];
-    console.log(denomAmount, index, target)
     var amountRemaining;
     for (var i = 0; i * denomAmount <= target; i++) {
       amountRemaining = target - (i * denomAmount);
