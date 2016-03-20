@@ -33,7 +33,7 @@ Array.prototype.isSubsetOf = function(array) {
   }
   for (var i = 0; i < this.length; i++) {
     if (!arrayContains(array, this[i])) {
-      return falsel
+      return false;
     }
   }
   return true;
