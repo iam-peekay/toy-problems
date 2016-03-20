@@ -10,6 +10,10 @@ For example, we have coin denominations 1, 2 and 5 and the total amount is 7. We
 - 2, 5
 */
 
+// To count total number solutions, we can divide all set solutions in two sets.
+// 1) Solutions that do not contain mth coin (or Sm).
+// 2) Solutions that contain at least one Sm.
+
 function coinChange(amount, denoms) {
   var result = [];
   for (var i = 0; i < amount; i++) {
@@ -22,9 +26,27 @@ function coinChange(amount, denoms) {
     // For each denom
     curDenom = denoms[i];
     for (var j = denoms[k]; j <= amount; j++) {
-      // We count the number of ways to get to target amount using this denom
+      // We count the number of ways to get to target amount,
+      // adding solution that do not use this denom * do use this denom
       result[j] = result[j] + result[j - curDenom];
     }
   }
   return result[amount];
+}
+
+// METHOD 2:
+function coinChange(amount, denoms, index) {
+  if (amount === 0) {
+    return 1;
+  }
+
+  if (amount < 0) {
+    return 0;
+  }
+
+  if (amount > 0 && index === denoms.length) {
+    return 0;
+  }
+
+  return coinChange(amount - denoms[index], denoms, index) +  coinChange(amount, denoms, index + 1);
 }
