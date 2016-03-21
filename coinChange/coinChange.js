@@ -16,7 +16,7 @@ For example, we have coin denominations 1, 2 and 5 and the total amount is 7. We
 
 function coinChange(amount, denoms) {
   var result = [];
-  for (var i = 0; i < amount; i++) {
+  for (var i = 0; i <= amount; i++) {
     result.push(0);
   }
   // Initialize our results array with 1 (there is only 1 way to get 0)
@@ -24,7 +24,7 @@ function coinChange(amount, denoms) {
   var curDenom;
   for (var k = 0; k < denoms.length; k++) {
     // For each denom
-    curDenom = denoms[i];
+    curDenom = denoms[k];
     for (var j = denoms[k]; j <= amount; j++) {
       // We count the number of ways to get to target amount,
       // adding solution that do not use this denom * do use this denom
