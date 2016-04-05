@@ -14,18 +14,11 @@ All permutations of the above elements are (with ordering):
 6th - 321
 
 */
-function factorial(n, a, b) {
+function factorial(n) {
   if (n === 0 || n === 1) {
     return 1;
   }
-  var a = 0;
-  var b = 1;
-  for (var i = 2; i < n; i++) {
-    var c = a + b;
-    a = b;
-    b = c;
-  }
-  return a + b;
+  return n * factorial(n - 1);
 }
 
 function findKthPermutation(v, k, result) {
@@ -36,7 +29,7 @@ function findKthPermutation(v, k, result) {
   var n = v.length;
   var count = factorial(n - 1);
   var selected = Math.floor((k - 1) / count);
-  result += v[selected];
+  result += '' + v[selected];
   v.splice(selected, 1);
   k = k - (count * selected);
 
