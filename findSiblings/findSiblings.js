@@ -13,17 +13,11 @@ function findSiblings(root) {
     if (current.left) {
       last.next = current.left;
       last = current.left;
-      if (current.value === root.value) {
-        current = last;
-      }
     }
 
     if (current.right) {
       last.next = current.right;
       last = current.right;
-      if (current.value === root.value) {
-        current = last;
-      }
     }
     last.next = null;
     current = current.next;
