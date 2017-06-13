@@ -17,7 +17,7 @@ function findDup(list, n) {
   }
 }
 
-// METHOD 2: runtime = O(n) & memoty = O(1)
+// METHOD 2: runtime = O(n) & memory = O(1)
 // Using the triangular series theorem
 function findDup2(list, n) {
   var triangularSum = ((n * n) + n) * 0.5;

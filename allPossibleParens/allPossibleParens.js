@@ -7,6 +7,8 @@ they are balanced.
 function printAllParens(n) {
   var output = [];
   printAllParensRecurse(n, 0, 0, output);
+
+  return output;
 }
 
 function printAllParensRecurse(n, right, left, output) {
